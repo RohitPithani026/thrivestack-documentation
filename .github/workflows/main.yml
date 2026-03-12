@@ -1,0 +1,55 @@
+name: Main
+
+on:
+  push:
+    branches: [ main ]
+
+permissions:
+  id-token: write
+  contents: read
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [21.x]
+
+    permissions:
+      id-token: write
+      contents: read
+
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v3
+      with:
+        node-version: ${{ matrix.node-version }}
+        cache: 'npm'
+
+    - name: configure aws credentials
+      uses: aws-actions/configure-aws-credentials@v1.7.0
+      with:
+        aws-access-key-id: ${{ secrets.PROD_AWS_ACCESS_KEY_ID }}
+        aws-secret-access-key: ${{ secrets.PROD_AWS_SECRET_ACCESS_KEY }}
+        aws-region: us-east-1
+
+    - name: Install dependencies
+      run: npm install
+
+    - name: Build
+      run: npm run build
+
+    - name: Copy files to S3 bucket
+      run: |
+        aws s3 sync ./dist/ s3://${{ secrets.PROD_AWS_S3_BUCKET_NAME }} --delete
+
+    - name: Invalidate CloudFront Stale Distribution
+      run: |
+        distribution_id="EAZNJ59O08YJX"
+        echo "CloudFront Distribution ID: ${distribution_id}"
+        aws cloudfront create-invalidation --distribution-id ${distribution_id} --paths "/*"
+        echo "Invalidation Started For CloudFront Distribution ID: ${distribution_id}"
