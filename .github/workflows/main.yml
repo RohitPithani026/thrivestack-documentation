@@ -9,13 +9,9 @@ permissions:
   contents: read
 
 jobs:
-  build:
+  deploy:
 
     runs-on: ubuntu-latest
-
-    strategy:
-      matrix:
-        node-version: [21.x]
 
     permissions:
       id-token: write
@@ -24,12 +20,6 @@ jobs:
     steps:
     - uses: actions/checkout@v3
 
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v3
-      with:
-        node-version: ${{ matrix.node-version }}
-        cache: 'npm'
-
     - name: configure aws credentials
       uses: aws-actions/configure-aws-credentials@v1.7.0
       with:
@@ -37,15 +27,9 @@ jobs:
         aws-secret-access-key: ${{ secrets.PROD_AWS_SECRET_ACCESS_KEY }}
         aws-region: us-east-1
 
-    - name: Install dependencies
-      run: npm install
-
-    - name: Build
-      run: npm run build
-
     - name: Copy files to S3 bucket
       run: |
-        aws s3 sync ./dist/ s3://${{ secrets.PROD_AWS_S3_BUCKET_NAME }} --delete
+        aws s3 sync ./ s3://${{ secrets.PROD_AWS_S3_BUCKET_NAME }} --delete --exclude ".git/*" --exclude ".github/*" --exclude "README.md"
 
     - name: Invalidate CloudFront Stale Distribution
       run: |

@@ -1,40 +1,262 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="ThriveStack Documentation - Growth Intelligence for your GTM stack">
+    <title>ThriveStack.ai Documentation</title>
+    <!-- Modern Typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome for Iconography -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="top-nav">
+        <div class="nav-left">
+            <a href="#" class="logo">
+                <div class="logo-icon"><i class="fa-solid fa-layer-group"></i></div>
+                <span class="logo-text">ThriveStack docs</span>
+            </a>
+            <div class="search-bar">
+                <i class="fa-solid fa-search"></i>
+                <input type="text" placeholder="Search documentation... (Ctrl+K)">
+            </div>
+        </div>
+        <div class="nav-center">
+            <div class="nav-links">
 
-    <!-- Primary Meta -->
-    <title>ThriveStack Documentation — Growth Intelligence Platform</title>
-    <meta name="description" content="Comprehensive guides and API references to help you unify GTM, Product, and Revenue data into a single source of truth with ThriveStack." />
-    <meta name="keywords" content="ThriveStack, growth intelligence, product analytics, event tracking, identify, group, track, PLG, B2B SaaS, documentation" />
-    <meta name="robots" content="index, follow" />
-    <meta name="author" content="ThriveStack" />
+                <a href="index.html" class="active">Get Started</a>
+                <a href="#">Setup (Unify )</a>
+                <a href="#">Analyze Signals</a>
+                <a href="#">Take Action</a>
+            </div>
+        </div>
+        <div class="nav-right">
+            <button id="theme-toggle" class="icon-btn" aria-label="Toggle Theme">
+                <i class="fa-solid fa-sun" id="theme-icon"></i>
+            </button>
+            <a href="#" class="btn-primary">Sign In</a>
+            <button class="mobile-menu-btn"><i class="fa-solid fa-bars"></i></button>
+        </div>
+    </nav>
 
-    <!-- Open Graph (Facebook, LinkedIn, Slack previews) -->
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://docs.app.thrivestack.ai/" />
-    <meta property="og:title" content="ThriveStack Documentation — Growth Intelligence Platform" />
-    <meta property="og:description" content="Comprehensive guides and API references to help you unify GTM, Product, and Revenue data into a single source of truth." />
-    <!-- og:image: add a proper 1200x630 social preview image here when available -->
-    <meta property="og:site_name" content="ThriveStack Docs" />
+    <div class="layout-container">
+        <aside class="left-sidebar" id="sidebar">
+            <div class="sidebar-section">
+                <h3>Getting Started</h3>
+                <ul>
+                    <li><a href="#growth-intelligence" class="active">Growth Intelligence</a></li>
+                    <li><a href="#overview">Overview</a></li>
+                    <li><a href="#unified-dashboard">Unified dashboard</a></li>
+                    <li><a href="#signal-correlation">Signal correlation</a></li>
+                    <li><a href="#ai-powered-insights">AI-powered insights</a></li>
+                </ul>
+            </div>
+            
+            <div class="sidebar-section">
+                <h3>Core Concepts</h3>
+                <ul>
+                    <li><a href="connect-your-stack.html">Connect Your Stack</a></li>
+                    <li><a href="analyze-correlated-signals.html">Analyze Correlated Signals</a></li>
+                    <li><a href="drive-revenue-playbooks.html">Drive Revenue Playbooks</a></li>
+                    <li><a href="accelerate-free-to-paid.html">Accelerate Free-to-Paid</a></li>
+                    <li><a href="spot-expansion-signals.html">Spot Expansion Signals</a></li>
+                    <li><a href="stop-churn-early.html">Stop Churn Early</a></li>
+                </ul>
+            </div>
+        </aside>
 
-    <!-- Twitter Card -->
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:site" content="@thrivestack" />
-    <meta name="twitter:title" content="ThriveStack Documentation" />
-    <meta name="twitter:description" content="Guides and API references for ThriveStack Growth Intelligence Platform." />
-    <!-- twitter:image: add a proper 1200x630 social preview image here when available -->
+        <main class="main-content">
+            <div class="content-wrapper">
+                <header class="content-header">
+                    <div class="breadcrumbs">
+                        <a href="#">Documentation</a> <i class="fa-solid fa-chevron-right"></i> <a href="#">Get Started</a> <i class="fa-solid fa-chevron-right"></i> <span>Growth Intelligence</span>
+                    </div>
+                    <h1>Getting Started with ThriveStack</h1>
+                    <p class="lead">Unify signals across your entire go-to-market stack to give you a single, actionable view of growth.</p>
+                </header>
 
-    <!-- Canonical -->
-    <link rel="canonical" href="https://docs.app.thrivestack.ai/" />
+                <section id="growth-intelligence" class="content-section">
+                    <h2>Growth Intelligence</h2>
+                    <p><strong>ThriveStack's Growth Intelligence engine</strong> unifies signals across your entire go-to-market stack to give you a single, actionable view of growth. Instead of relying on fragmented data silos, our platform brings everything together seamlessly.</p>
+                </section>
 
-    <!-- Favicon -->
-    <link rel="icon" type="image/png" href="https://cdn.prod.website-files.com/67c7d3efa9780ed6d5c6927e/67dd93e9c092f56ea4b02827_256x256.png" />
-    <link rel="apple-touch-icon" href="https://cdn.prod.website-files.com/67c7d3efa9780ed6d5c6927e/67dd93e9c092f56ea4b02827_256x256.png" />
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
-  </body>
+                <section id="overview" class="content-section">
+                    <h2>Overview</h2>
+                    <p>Growth Intelligence combines data from marketing, sales, product, billing, and customer success into correlated signals. Instead of switching between 5+ tools, your team sees one coherent picture of how your business is growing.</p>
+                    
+                    <div class="cards-grid">
+                        <div class="feature-card glass-panel">
+                            <div class="card-icon blue"><i class="fa-solid fa-bullseye"></i></div>
+                            <h3>Unified View</h3>
+                            <p>Stop context switching. See all customer actions in one timeline.</p>
+                        </div>
+                        <div class="feature-card glass-panel">
+                            <div class="card-icon purple"><i class="fa-solid fa-bolt"></i></div>
+                            <h3>Real-time Sync</h3>
+                            <p>Data is synced instantly across your CRM, helpdesk, and billing platforms.</p>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="unified-dashboard" class="content-section">
+                    <h2>Unified dashboard</h2>
+                    <p>The dashboard surfaces key metrics across every stage of your funnel — from first touch through expansion. Filter by segment, cohort, time range, or custom properties to drill into the signals that matter most.</p>
+                    
+                    <div class="dashboard-mockup glass-panel fade-in-up">
+                        <div class="mockup-header">
+                            <div class="window-controls">
+                                <span></span><span></span><span></span>
+                            </div>
+                            <div class="mockup-url">thrivestack.ai/dashboard</div>
+                        </div>
+                        <div class="mockup-body">
+                            <div class="mock-sidebar"></div>
+                            <div class="mock-main">
+                                <div class="mock-stats">
+                                    <div class="stat-box pulse-glow"></div>
+                                    <div class="stat-box"></div>
+                                    <div class="stat-box"></div>
+                                </div>
+                                <div class="mock-chart">
+                                    <div class="chart-line"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="signal-correlation" class="content-section">
+                    <h2>Signal correlation</h2>
+                    <p>ThriveStack automatically links related signals across all your tools. For example, it connects marketing website visitors to SaaS product telemetry, Stripe billing events, HubSpot CRM stages, and customer success support interactions — building a complete picture of each account's journey.</p>
+                    
+                    <div class="integration-cards glass-panel">
+                        <div class="tech-grid">
+                            <div class="tech-card">
+                                <i class="fa-solid fa-bullseye text-orange"></i>
+                                <span>Marketing</span>
+                                <small>Visitors</small>
+                            </div>
+                            <div class="tech-card">
+                                <i class="fa-solid fa-chart-line" style="color:#3b82f6;"></i>
+                                <span>SaaS Product</span>
+                                <small>Telemetry</small>
+                            </div>
+                            <div class="tech-card">
+                                <i class="fa-brands fa-stripe" style="color:#635bff;"></i>
+                                <span>Billing</span>
+                                <small>Stripe</small>
+                            </div>
+                            <div class="tech-card">
+                                <i class="fa-brands fa-hubspot" style="color:#ff7a59;"></i>
+                                <span>CRM</span>
+                                <small>HubSpot</small>
+                            </div>
+                            <div class="tech-card">
+                                <i class="fa-solid fa-headset text-green"></i>
+                                <span>Success</span>
+                                <small>Support</small>
+                            </div>
+                        </div>
+                        
+                        <div class="flow-down">
+                            <div class="flow-line-vertical"></div>
+                            <div class="animated-dot-vertical"></div>
+                        </div>
+                        
+                        <div class="hub-center">
+                            <div class="node center"><i class="fa-solid fa-layer-group gradient-text"></i> ThriveStack</div>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="ai-powered-insights" class="content-section">
+                    <h2>AI-powered insights</h2>
+                    <p>The AI layer continuously analyzes your signals to surface opportunities and risks. It detects patterns like:</p>
+                    
+                    <ul class="styled-list">
+                        <li>
+                            <div class="list-icon text-green bg-green-light"><i class="fa-solid fa-arrow-trend-up"></i></div>
+                            <div class="list-content">
+                                <strong>Accounts likely to expand</strong>
+                                <span>Identify up-sell opportunities automatically based on usage spikes and feature adoption.</span>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="list-icon text-orange bg-orange-light"><i class="fa-solid fa-filter"></i></div>
+                            <div class="list-content">
+                                <strong>Conversion bottlenecks</strong>
+                                <span>See exactly where users drop off in your funnel and get recommendations to fix it.</span>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="list-icon text-red bg-red-light"><i class="fa-solid fa-triangle-exclamation"></i></div>
+                            <div class="list-content">
+                                <strong>Early churn indicators</strong>
+                                <span>Proactively reach out before it's too late when engagement drops.</span>
+                            </div>
+                        </li>
+                    </ul>
+                    <p class="mt-4">Then, the engine recommends specific actions to drive growth and retention, pushing tasks directly to your teams' preferred tools.</p>
+                </section>
+                
+                <!-- Removed Core Concept Sections for Separate Pages -->
+                
+                <div class="page-nav">
+                    <a href="#" class="nav-card prev-card disabled">
+                        <span class="nav-label">Previous</span>
+                        <span class="nav-title">None</span>
+                    </a>
+                    <a href="#" class="nav-card next-card">
+                        <span class="nav-label">Next</span>
+                        <span class="nav-title">Product Analytics</span>
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                </div>
+                
+                <footer class="content-footer">
+                    <p>Was this page helpful?</p>
+                    <div class="feedback-btns">
+                        <button class="btn-icon"><i class="fa-regular fa-thumbs-up"></i> Yes</button>
+                        <button class="btn-icon"><i class="fa-regular fa-thumbs-down"></i> No</button>
+                    </div>
+                    <div class="footer-links">
+                        <a href="#"><i class="fa-brands fa-github"></i> Edit on GitHub</a>
+                        <a href="#">Last updated 2 days ago</a>
+                    </div>
+                </footer>
+            </div>
+        </main>
+
+        <aside class="right-sidebar">
+            <div class="toc-container sticky-top">
+                <h4>On this page</h4>
+                <nav id="toc" class="toc-nav">
+                    <a href="#growth-intelligence" class="toc-link active">Growth Intelligence</a>
+                    <a href="#overview" class="toc-link">Overview</a>
+                    <a href="#unified-dashboard" class="toc-link">Unified dashboard</a>
+                    <a href="#signal-correlation" class="toc-link">Signal correlation</a>
+                    <a href="#ai-powered-insights" class="toc-link">AI-powered insights</a>
+                    <!-- Menu links removed -->
+                </nav>
+                <div class="toc-promo glass-panel">
+                    <div class="promo-icon"><i class="fa-solid fa-rocket gradient-text"></i></div>
+                    <h5>Ready to scale?</h5>
+                    <p>Book a demo with our growth team today.</p>
+                    <a href="#" class="btn-secondary btn-sm">Get Started</a>
+                </div>
+            </div>
+        </aside>
+    </div>
+
+    <script src="script.js"></script>
+</body>
 </html>
+
+
+
+
