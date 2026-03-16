@@ -75,4 +75,27 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     });
+
+    // "Was this page helpful?" feedback (no storage)
+    document.querySelectorAll('.content-footer').forEach(footer => {
+        const textEl = footer.querySelector('p');
+        const buttons = footer.querySelectorAll('.btn-icon');
+        if (!textEl || buttons.length < 2) return;
+
+        const [yesBtn, noBtn] = buttons;
+
+        const handleClick = (helpful) => {
+            textEl.textContent = helpful
+                ? 'Thanks for your feedback!'
+                : 'Thanks for your feedback — we’ll use this to improve.';
+
+            [yesBtn, noBtn].forEach(btn => {
+                btn.disabled = true;
+                btn.classList.add('feedback-submitted');
+            });
+        };
+
+        yesBtn.addEventListener('click', () => handleClick(true));
+        noBtn.addEventListener('click', () => handleClick(false));
+    });
 });

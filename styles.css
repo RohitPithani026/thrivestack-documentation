@@ -236,16 +236,10 @@ a:hover { color: var(--brand-primary-hover); }
     font-weight: 700;
     color: var(--text-primary);
 }
-.logo-icon {
-    width: 32px;
+.logo-img {
     height: 32px;
-    background: var(--gradient-brand);
-    color: white;
-    border-radius: 8px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1rem;
+    width: auto;
+    display: block;
 }
 
 .search-bar {
@@ -443,26 +437,19 @@ a:hover { color: var(--brand-primary-hover); }
     flex-direction: column;
     gap: 1rem;
 }
-.mock-stats { display: flex; gap: 1rem; }
-.stat-box {
-    flex: 1;
-    height: 60px;
-    background: var(--bg-sidebar);
-    border-radius: 6px;
+.mock-stats {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+.stage-pill {
+    padding: 0.25rem 0.75rem;
+    border-radius: 999px;
     border: 1px solid var(--border-color);
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+    background: rgba(15, 23, 42, 0.7);
 }
-.pulse-glow {
-    position: relative;
-    overflow: hidden;
-}
-.pulse-glow::after {
-    content: '';
-    position: absolute;
-    top: 0; left: -100%; width: 50%; height: 100%;
-    background: linear-gradient(to right, transparent, rgba(255,255,255,0.1), transparent);
-    animation: shine 3s infinite;
-}
-@keyframes shine { 100% { left: 200%; } }
 .mock-chart {
     flex-grow: 1;
     background: var(--bg-sidebar);
@@ -582,7 +569,15 @@ a:hover { color: var(--brand-primary-hover); }
     gap: 0.5rem;
     box-shadow: var(--shadow-sm);
 }
-.node.center { transform: scale(1.1); box-shadow: var(--shadow-md); border-color: var(--brand-accent); }
+.node.center {
+    border-color: var(--border-color);
+    cursor: default;
+    transition: transform 0.2s ease, border-color 0.2s ease;
+}
+.node.center:hover {
+    transform: translateY(-4px);
+    border-color: var(--brand-primary);
+}
 
 /* Styled List */
 .styled-list { list-style: none; margin-top: 1.5rem; }
@@ -644,6 +639,14 @@ a:hover { color: var(--brand-primary-hover); }
 }
 .feedback-btns { display: flex; gap: 0.5rem; }
 .feedback-btns .btn-icon { border: 1px solid var(--border-color); border-radius: 6px; padding: 0.4rem 0.8rem; width: auto; font-size: 0.9rem; }
+.feedback-submitted {
+    opacity: 0.6;
+    cursor: default;
+}
+.feedback-submitted:hover {
+    background: inherit;
+    color: inherit;
+}
 .footer-links {
     display: flex;
     justify-content: space-between;
