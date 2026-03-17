@@ -775,9 +775,21 @@ a:hover { color: var(--brand-primary-hover); }
     flex-direction: column;
     align-items: center;
 }
+.signals-box {
+    border: 2px dashed var(--border-color);
+    background: var(--bg-sidebar);
+    border-radius: 12px;
+    padding: 1.5rem;
+    width: 100%;
+    position: relative;
+    transition: border-color 0.3s ease;
+}
+.signals-box:hover {
+    border-color: var(--brand-primary);
+}
 .tech-grid {
     display: flex;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     justify-content: center;
     gap: 1.5rem;
     width: 100%;
@@ -791,8 +803,8 @@ a:hover { color: var(--brand-primary-hover); }
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    min-width: 130px;
-    flex: 1;
+    flex: 0 0 130px;
+    width: 130px;
     box-shadow: var(--shadow-sm);
     transition: transform 0.2s, border-color 0.2s;
     text-align: center;
@@ -1255,4 +1267,8 @@ a:hover { color: var(--brand-primary-hover); }
     .search-bar input { width: 40px; padding: 0; opacity: 0; }
     .search-bar i { pointer-events: none; z-index: 10; padding: 0.5rem; }
     .nav-right .btn-primary { display: none; }
+}
+
+ready-to-scale-promo {
+    display: block;
 }

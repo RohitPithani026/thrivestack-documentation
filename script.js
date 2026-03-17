@@ -259,3 +259,17 @@ document.addEventListener('DOMContentLoaded', () => {
         noBtn.addEventListener('click', () => handleClick(false));
     });
 });
+
+class ReadyToScalePromo extends HTMLElement {
+    connectedCallback() {
+        this.innerHTML = `
+            <div class="toc-promo glass-panel">
+                <div class="promo-icon"><i class="fa-solid fa-rocket gradient-text"></i></div>
+                <h5>Ready to scale?</h5>
+                <p>Book a demo with our growth team today.</p>
+                <a href="https://cal.com/thrivestack/strategy?duration=45&overlayCalendar=true" class="btn-secondary btn-sm" target="_blank" rel="noopener noreferrer">Get Started</a>
+            </div>
+        `;
+    }
+}
+customElements.define('ready-to-scale-promo', ReadyToScalePromo);
