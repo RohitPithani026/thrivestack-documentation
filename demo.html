@@ -635,7 +635,7 @@ Your API key is YOUR_API_KEY_HERE</code></pre>
         function copyCode(id, btn) {
             var text = document.getElementById(id).innerText;
             navigator.clipboard.writeText(text).then(function () {
-                btn.innerHTML = '<i class="fa-solid fa-check"></i> Copied';
+                btn.innerHTML = '<i class="fa-solid fa-circle-check"></i> Copied';
                 btn.classList.add('copied');
                 setTimeout(function () {
                     btn.innerHTML = '<i class="fa-regular fa-copy"></i> Copy';
