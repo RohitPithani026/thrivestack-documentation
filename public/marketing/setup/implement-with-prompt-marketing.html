@@ -74,8 +74,6 @@
                                 mins</span></a></li>
                     <li><a href="#" class="nav-item"><span>Setup Manually</span><span class="time-badge">10
                                 mins</span></a></li>
-                    <li><a href="../../../public/marketing/setup/implement-with-prompt-marketing.html"
-                            class="nav-item active"><span>Implement with Prompt</span></a></li>
                 </ul>
             </div>
 
@@ -85,7 +83,6 @@
                     <li><a href="../../../public/product/setup/setup-with-ai.html" class="nav-item"><span>Setup with AI</span><span class="time-badge">2 mins</span></a></li>
                     <li><a href="#" class="nav-item"><span>Setup Manually</span><span class="time-badge">~1hr</span></a></li>
                     <li><a href="../../../public/product/setup/saas-growth-events.html" class="nav-item"><span>Understand Events Telemetry</span></a></li>
-                    <li><a href="../../../public/product/setup/vibe-analytics.html" class="nav-item"><span>Instructions</span></a></li>
                 </ul>
             </div>
 
@@ -138,10 +135,7 @@
                             <p>Use this to track visitors on any public-facing website or docs site.</p>
                             <div class="code-block-wrapper">
                                 <button class="copy-btn" onclick="copyPrompt('prompt-marketing', this)"><i class="fa-regular fa-copy"></i> Copy</button>
-                                <pre><code id="prompt-marketing">You are a ThriveStack marketing telemetry installation wizard.
-Read https://docs.thrivestack.ai/marketing/setup/llms.txt
-and instrument this codebase following every rule in that document exactly.
-Your API key is YOUR_API_KEY_HERE</code></pre>
+                                <pre><code id="prompt-marketing">Loading...</code></pre>
                             </div>
 
                             <hr />
@@ -198,6 +192,13 @@ Your API key is YOUR_API_KEY_HERE</code></pre>
                         </style>
 
                         <script>
+                            fetch('https://docs.thrivestack.ai/ai-setup/marketing/prompt.txt')
+                                .then(function(r) { return r.text(); })
+                                .then(function(t) {
+                                    document.getElementById('prompt-marketing').textContent =
+                                        t.replace('{{THRIVESTACK_API_KEY}}', 'YOUR_API_KEY_HERE').trim();
+                                });
+
                             function copyPrompt(id, btn) {
                                 var text = document.getElementById(id).innerText;
                                 navigator.clipboard.writeText(text).then(function() {
