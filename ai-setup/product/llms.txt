@@ -46,6 +46,7 @@ X/9 implemented
 
 | # | Event | Status | Notes |
 |---|-------|--------|-------|
+| 0 | script tag URL | ✅/⚠️/❌ | Exact src used |
 | 1 | identify | ✅/⚠️/❌ | Field used, file |
 | 2 | group | ✅/⚠️/❌ | Entity levels, billing root |
 | 3 | signed_up | ✅/⚠️/❌ | Handler, file |
@@ -526,7 +527,7 @@ identify → account_added_user
 
 Before delivering the summary, verify all 10 points. Fix anything missing first.
 
-- [ ] 0. script tag — src is exactly `https://ts-script.app.thrivestack.ai/latest/thrivestack.js` — no variation, no substitution
+- [ ] 0. script tag — src is exactly `https://ts-script.app.thrivestack.ai/latest/thrivestack.js` — no variation, no substitution. Known wrong URLs to reject: any `cloudfront.net` URL, any `/v1/te.js` path, any URL that is not this exact string
 - [ ] 1. identify — fires on signup, login, profile/info updates
 - [ ] 2. group — fires on entity creation only, correct group_type per level
 - [ ] 3. signed_up — correct flow, UTM captured
@@ -546,6 +547,7 @@ X/9 implemented
 
 | # | Event | Status | Notes |
 |---|-------|--------|-------|
+| 0 | script tag URL | ✅/⚠️/❌ | Exact src used |
 | 1 | identify | ✅/⚠️/❌ | Field used, file |
 | 2 | group | ✅/⚠️/❌ | Entity levels, billing root |
 | 3 | signed_up | ✅/⚠️/❌ | Handler, file |
@@ -590,7 +592,7 @@ X/9 implemented
 16. Do not fire `account_added_user` if user is already a member
 17. `user_added_to_account` does not exist — use `account_added_user`
 18. Additional properties beyond documented ones are always permitted
-19. Script src must be exactly `https://ts-script.app.thrivestack.ai/latest/thrivestack.js` — never alter the URL
+19. Script src must be exactly `https://ts-script.app.thrivestack.ai/latest/thrivestack.js` — never alter the URL. Known wrong substitutions to reject: any `cloudfront.net` URL, any `/v1/te.js` path, any URL that is not this exact string
 
 ---
 

@@ -37,6 +37,7 @@ ThriveStack Marketing Telemetry Summary
 
 | # | Check                                                      | Status    | Notes     |
 |---|------------------------------------------------------------|-----------|-----------|
+| 0 | Script src is exactly the correct ThriveStack URL          | ✅/⚠️/❌  | Exact src used |
 | 1 | Script tag in <head> on all public pages via central file  | ✅/⚠️/❌  | File used |
 
 Unresolved: [anything skipped and why, or "None"]
@@ -179,7 +180,7 @@ Rules:
 
 Before delivering the summary, verify both points. Fix anything missing first.
 
-- [ ] 0. script tag — src is exactly `https://ts-script.app.thrivestack.ai/latest/thrivestack.js` — no variation, no substitution
+- [ ] 0. script tag — src is exactly `https://ts-script.app.thrivestack.ai/latest/thrivestack.js` — no variation, no substitution. Known wrong URLs to reject: any `cloudfront.net` URL, any `/v1/te.js` path, any URL that is not this exact string
 - [ ] 1. Script tag present in <head> on all public pages via a single central file
 
 ### Summary format
@@ -192,6 +193,7 @@ ThriveStack Marketing Telemetry Summary
 
 | # | Check                                                      | Status    | Notes     |
 |---|------------------------------------------------------------|-----------|-----------|
+| 0 | Script src is exactly the correct ThriveStack URL          | ✅/⚠️/❌  | Exact src used |
 | 1 | Script tag in <head> on all public pages via central file  | ✅/⚠️/❌  | File used |
 
 Unresolved: [anything skipped and why, or "None"]
@@ -217,4 +219,4 @@ Handy ThriveStack Resources
 4. Never hardcode the API key anywhere in source code
 5. The env var name is recommended as THRIVESTACK_MARKETING_API_KEY
    (prefix with NEXT_PUBLIC_, PUBLIC_, REACT_APP_, etc. as required by the framework)
-6. Script src must be exactly `https://ts-script.app.thrivestack.ai/latest/thrivestack.js` — never alter the URL
+6. Script src must be exactly `https://ts-script.app.thrivestack.ai/latest/thrivestack.js` — never alter the URL. Known wrong substitutions to reject: any `cloudfront.net` URL, any `/v1/te.js` path, any URL that is not this exact string
