@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Events Telemetry - ThriveStack Documentation">
     <!-- Theme bootstrapping: pick saved theme before paint -->
     <script>
-        (function() {
+        (function () {
             try {
                 var saved = localStorage.getItem('theme') || 'dark';
                 document.documentElement.setAttribute('data-theme', saved);
@@ -16,14 +17,17 @@
         })();
     </script>
     <title>Events Telemetry - ThriveStack</title>
-    <link rel="icon" type="image/png" href="https://cdn.prod.website-files.com/67c7d3efa9780ed6d5c6927e/67dd93e9c092f56ea4b02827_256x256.png" />
-    <link rel="apple-touch-icon" href="https://cdn.prod.website-files.com/67c7d3efa9780ed6d5c6927e/67dd93e9c092f56ea4b02827_256x256.png" />
+    <link rel="icon" type="image/png"
+        href="https://cdn.prod.website-files.com/67c7d3efa9780ed6d5c6927e/67dd93e9c092f56ea4b02827_256x256.png" />
+    <link rel="apple-touch-icon"
+        href="https://cdn.prod.website-files.com/67c7d3efa9780ed6d5c6927e/67dd93e9c092f56ea4b02827_256x256.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="../../../styles.css">
 </head>
+
 <body>
     <nav class="top-nav">
         <div class="nav-left">
@@ -49,7 +53,8 @@
             <button id="theme-toggle" class="icon-btn" aria-label="Toggle Theme">
                 <i class="fa-solid fa-sun" id="theme-icon"></i>
             </button>
-            <a href="https://app.thrivestack.ai/auth/customer-analytics/sign-up" class="btn-primary" target="_blank" rel="noopener noreferrer">Sign In</a>
+            <a href="https://app.thrivestack.ai/auth/customer-analytics/sign-up" class="btn-primary" target="_blank"
+                rel="noopener noreferrer">Sign In</a>
             <button class="mobile-menu-btn"><i class="fa-solid fa-bars"></i></button>
         </div>
     </nav>
@@ -59,44 +64,51 @@
             <div class="sidebar-section">
                 <h3>Overview</h3>
                 <ul>
-                    <li><a href="../../../setup-overview.html" class="nav-item"><span>Setup (Unify) Overview</span></a></li>
+                    <li><a href="../../../setup-overview.html" class="nav-item"><span>Setup (Unify) Overview</span></a>
+                    </li>
                 </ul>
             </div>
 
             <div class="sidebar-section">
                 <h3>Marketing Intelligence</h3>
                 <ul>
-                    <li><a href="../../../public/marketing/setup/setup-with-ai.html" class="nav-item"><span>Setup with AI (LLM)</span><span class="time-badge">2
+                    <li><a href="../../../public/marketing/setup/setup-with-ai.html" class="nav-item"><span>Setup with
+                                AI (LLM)</span><span class="time-badge">2
                                 mins</span></a></li>
                     <li><a href="#" class="nav-item"><span>Setup Manually</span><span class="time-badge">10
                                 mins</span></a></li>
                 </ul>
             </div>
-            
+
             <div class="sidebar-section">
                 <h3>Product Intelligence</h3>
                 <ul>
-                    <li><a href="../../../public/product/setup/setup-with-ai.html" class="nav-item"><span>Setup with AI</span><span class="time-badge">2 mins</span></a></li>
-                    <li><a href="#" class="nav-item"><span>Setup Manually</span><span class="time-badge">~1hr</span></a></li>
-                    <li><a href="../../../public/product/setup/saas-growth-events.html" class="nav-item active"><span>Understand Events Telemetry</span></a></li>
+                    <li><a href="../../../public/product/setup/setup-with-ai.html" class="nav-item"><span>Setup with
+                                AI</span><span class="time-badge">2 mins</span></a></li>
+                    <li><a href="#" class="nav-item"><span>Setup Manually</span><span class="time-badge">~1hr</span></a>
+                    </li>
+                    <li><a href="../../../public/product/setup/saas-growth-events.html"
+                            class="nav-item active"><span>Understand Events Telemetry</span></a></li>
                 </ul>
             </div>
-            
+
             <div class="sidebar-section">
                 <h3>Revenue Intelligence</h3>
                 <ul>
-                    <li><a href="#" class="nav-item"><span>Setup with AI (LLM)</span><span class="time-badge">2 mins</span></a></li>
-                    <li><a href="#" class="nav-item"><span>Setup Manually</span><span class="time-badge">~1hr</span></a></li>
+                    <li><a href="#" class="nav-item"><span>Setup with AI (LLM)</span><span class="time-badge">2
+                                mins</span></a></li>
+                    <li><a href="#" class="nav-item"><span>Setup Manually</span><span class="time-badge">~1hr</span></a>
+                    </li>
                 </ul>
             </div>
-            
+
             <div class="sidebar-section">
                 <h3>CRM Sync</h3>
                 <ul>
                     <li><a href="#" class="nav-item"><span>HubSpot</span></a></li>
                 </ul>
             </div>
-            
+
             <div class="sidebar-section">
                 <h3>Customer Success</h3>
                 <ul>
@@ -112,14 +124,15 @@
                     <section class="doc-page">
                         <div class="breadcrumbs">
                             <a href="../../../index.html">Documentation</a> <i class="fa-solid fa-chevron-right"></i>
-                            <a href="../../../setup-overview.html">Setup (Unify)</a> <i class="fa-solid fa-chevron-right"></i>
+                            <a href="../../../setup-overview.html">Setup (Unify)</a> <i
+                                class="fa-solid fa-chevron-right"></i>
                             <span>Journey to Event</span>
                         </div>
                         <header class="doc-page-header">
                             <span class="doc-page-header-eyebrow">Implementation</span>
                             <h1 class="doc-page-title">Events Telemetry</h1>
                             <p class="doc-page-description">
-                              Mapping of customer journey phases to telemetry events.
+                                Mapping of customer journey phases to telemetry events.
                             </p>
                         </header>
 
@@ -129,50 +142,151 @@
 
                             <p><strong>Telemetry Events:</strong></p>
                             <ul>
-                              <li><code>Track</code> → <code>POST /api/track</code></li>
-                              <li><code>Identify</code> → <code>POST /api/identify</code></li>
-                              <li><code>Group</code> → <code>POST /api/group</code></li>
-                              <li><code>Stripe</code> → Stripe Webhook / Integration</li>
+                                <li><code>Track</code> → <code>POST /api/track</code></li>
+                                <li><code>Identify</code> → <code>POST /api/identify</code></li>
+                                <li><code>Group</code> → <code>POST /api/group</code></li>
                             </ul>
 
                             <table>
-                              <thead>
-                                <tr>
-                                  <th>Bow-Tie (Phase)</th>
-                                  <th>Object</th>
-                                  <th>Journey (Activity)</th>
-                                  <th>Track</th>
-                                  <th>Identify</th>
-                                  <th>Group</th>
-                                  <th>Stripe</th>
-                                </tr>
-                              </thead>
-                              <tbody>
-                                <tr><td><strong>Acquisition</strong></td><td>User</td><td>Signed Up</td><td>✅</td><td>✅</td><td></td><td></td></tr>
-                                <tr><td><strong>Acquisition</strong></td><td>User</td><td>Invite User</td><td>✅</td><td></td><td></td><td></td></tr>
-                                <tr><td><strong>Acquisition</strong></td><td>User</td><td>Login (Signed in)</td><td>N/A</td><td>✅</td><td>✅</td><td>✅</td></tr>
-                                <tr><td><strong>Acquisition</strong></td><td>Account</td><td>Created</td><td>✅</td><td></td><td>✅</td><td></td></tr>
-                                <tr><td><strong>Acquisition</strong></td><td>Account</td><td>Added User</td><td>✅</td><td></td><td></td><td></td></tr>
-                                <tr><td><strong>Activation</strong></td><td>Account</td><td>Profile completed</td><td>✅</td><td></td><td></td><td></td></tr>
-                                <tr><td><strong>Activation</strong></td><td>Account</td><td>Onboarding step completed</td><td>✅</td><td></td><td></td><td></td></tr>
-                                <tr><td><strong>Activation</strong></td><td>Account</td><td>First project created</td><td>✅</td><td></td><td></td><td></td></tr>
-                                <tr><td><strong>Activation</strong></td><td>Account</td><td>First Aha/Value moment</td><td>✅</td><td></td><td></td><td></td></tr>
-                                <tr><td><strong>Engagement</strong></td><td>Account</td><td>Product page visited</td><td>✅</td><td></td><td></td><td></td></tr>
-                                <tr><td><strong>Engagement</strong></td><td>Account</td><td>Feature used</td><td>✅</td><td></td><td></td><td></td></tr>
-                                <tr><td><strong>Engagement</strong></td><td>User</td><td>Invite user to feature</td><td>✅</td><td></td><td></td><td></td></tr>
-                                <tr><td><strong>Retention</strong></td><td>User</td><td>User returned / active session</td><td></td><td>✅</td><td></td><td></td></tr>
-                                <tr><td><strong>Retention</strong></td><td>Account</td><td>Product page visited</td><td>✅</td><td></td><td></td><td></td></tr>
-                                <tr><td><strong>Retention</strong></td><td>Account</td><td>Feature used (repeat)</td><td>✅</td><td></td><td></td><td></td></tr>
-                                <tr><td><strong>Contraction</strong></td><td>Account</td><td>User removed from account</td><td>✅</td><td></td><td></td><td></td></tr>
-                                <tr><td><strong>Contraction</strong></td><td>Account</td><td>Feature usage dropped (absence signal)</td><td>✅</td><td></td><td></td><td></td></tr>
-                                <tr><td><strong>Contraction</strong></td><td>Account</td><td>Plan downgraded</td><td></td><td></td><td></td><td>✅</td></tr>
-                                <tr><td><strong>Expansion</strong></td><td>User</td><td>New user added to account</td><td>✅</td><td></td><td></td><td></td></tr>
-                                <tr><td><strong>Expansion</strong></td><td>User</td><td>Invite sent</td><td>✅</td><td></td><td></td><td></td></tr>
-                                <tr><td><strong>Expansion</strong></td><td>Account</td><td>Account traits updated (plan upgrade)</td><td></td><td></td><td></td><td>✅</td></tr>
-                                <tr><td><strong>Churn</strong></td><td>User</td><td>User deleted / deactivated</td><td>✅</td><td></td><td></td><td></td></tr>
-                                <tr><td><strong>Churn</strong></td><td>Account</td><td>Subscription cancelled</td><td></td><td></td><td></td><td>✅</td></tr>
-                                <tr><td><strong>Churn</strong></td><td>Account</td><td>Account deleted</td><td>✅</td><td></td><td></td><td></td></tr>
-                              </tbody>
+                                <thead>
+                                    <tr>
+                                        <th>Bow-Tie (Phase)</th>
+                                        <th>Object</th>
+                                        <th>Journey (Activity)</th>
+                                        <th>Track</th>
+                                        <th>Identify</th>
+                                        <th>Group</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><strong>Acquisition</strong></td>
+                                        <td>User</td>
+                                        <td>Signed Up</td>
+                                        <td>✅</td>
+                                        <td>✅</td>
+                                        <td></td>
+
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Acquisition</strong></td>
+                                        <td>User</td>
+                                        <td>Invite User</td>
+                                        <td>✅</td>
+                                        <td></td>
+                                        <td></td>
+
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Acquisition</strong></td>
+                                        <td>User</td>
+                                        <td>Login (Signed in)</td>
+                                        <td></td>
+                                        <td>✅</td>
+                                        <td>✅</td>
+
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Acquisition</strong></td>
+                                        <td>Account</td>
+                                        <td>Created</td>
+                                        <td>✅</td>
+                                        <td></td>
+                                        <td>✅</td>
+
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Acquisition</strong></td>
+                                        <td>Account</td>
+                                        <td>Added User</td>
+                                        <td>✅</td>
+                                        <td></td>
+                                        <td></td>
+
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Activation</strong></td>
+                                        <td>Account</td>
+                                        <td>Profile completed</td>
+                                        <td>✅</td>
+                                        <td></td>
+                                        <td></td>
+
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Activation</strong></td>
+                                        <td>Account</td>
+                                        <td>Onboarding step completed (for each step)</td>
+                                        <td>✅</td>
+                                        <td></td>
+                                        <td></td>
+
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Engagement</strong></td>
+                                        <td>Account</td>
+                                        <td>Feature used</td>
+                                        <td>✅</td>
+                                        <td></td>
+                                        <td></td>
+
+                                    </tr>
+
+                                    <tr>
+                                        <td><strong>Engagement</strong></td>
+                                        <td>User</td>
+                                        <td>Page Visited</td>
+                                        <td>✅</td>
+                                        <td></td>
+                                        <td></td>
+
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Contraction</strong></td>
+                                        <td>Account</td>
+                                        <td>User removed from account</td>
+                                        <td>✅</td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Expansion</strong></td>
+                                        <td>User</td>
+                                        <td>New user added to account</td>
+                                        <td>✅</td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Expansion</strong></td>
+                                        <td>User</td>
+                                        <td>Invite sent</td>
+                                        <td>✅</td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Churn</strong></td>
+                                        <td>User</td>
+                                        <td>User deleted / deactivated</td>
+                                        <td>✅</td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Churn</strong></td>
+                                        <td>Account</td>
+                                        <td>Account deleted</td>
+                                        <td>✅</td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                    </tr>
+                                </tbody>
                             </table>
                         </article>
                     </section>
@@ -197,8 +311,10 @@
                         <button class="btn-icon"><i class="fa-regular fa-thumbs-down"></i> No</button>
                     </div>
                     <div class="footer-links">
-                        <a href="https://github.com/Thrivestack-public/thrivestack-documentation" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-github"></i> Edit on GitHub</a>
-                        <a class="last-updated" href="#" tabindex="-1" aria-disabled="true" data-file="vibe-analytics.html">Last updated: March 16, 2026</a>
+                        <a href="https://github.com/Thrivestack-public/thrivestack-documentation" target="_blank"
+                            rel="noopener noreferrer"><i class="fa-brands fa-github"></i> Edit on GitHub</a>
+                        <a class="last-updated" href="#" tabindex="-1" aria-disabled="true"
+                            data-file="vibe-analytics.html">Last updated: March 16, 2026</a>
                     </div>
                 </footer>
             </div>
@@ -217,5 +333,5 @@
 
     <script src="../../../script.js"></script>
 </body>
-</html>
 
+</html>
