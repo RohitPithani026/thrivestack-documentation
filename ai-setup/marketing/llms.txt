@@ -86,11 +86,11 @@ Never add it inside an individual page component or template. Never add it multi
       return (
         <Html>
           <Head>
-            <script
+            &lt;script
               src="https://ts-script.app.thrivestack.ai/latest/thrivestack.js"
               api-key={process.env.NEXT_PUBLIC_THRIVESTACK_MARKETING_API_KEY}
               source="marketing"
-            />
+            /&gt;
           </Head>
           <body>
             <Main />
@@ -102,11 +102,11 @@ Never add it inside an individual page component or template. Never add it multi
 
 ### React (public/index.html)
 
-    <script
+    &lt;script
       src="https://ts-script.app.thrivestack.ai/latest/thrivestack.js"
       api-key="%REACT_APP_THRIVESTACK_MARKETING_API_KEY%"
-      source="marketing">
-    </script>
+      source="marketing"&gt;
+    &lt;/script&gt;
 
 ### Vue / Nuxt (nuxt.config.ts or vue.config.js)
 
@@ -128,33 +128,33 @@ Never add it inside an individual page component or template. Never add it multi
 ### Astro (src/layouts/BaseLayout.astro or similar shared layout)
 
     <head>
-      <script
+      &lt;script
         src="https://ts-script.app.thrivestack.ai/latest/thrivestack.js"
         api-key={import.meta.env.PUBLIC_THRIVESTACK_MARKETING_API_KEY}
         source="marketing"
-        is:inline>
-      </script>
+        is:inline&gt;
+      &lt;/script&gt;
     </head>
 
 ### SvelteKit (src/app.html)
 
     <head>
-      <script
+      &lt;script
         src="https://ts-script.app.thrivestack.ai/latest/thrivestack.js"
         api-key="%PUBLIC_THRIVESTACK_MARKETING_API_KEY%"
-        source="marketing">
-      </script>
+        source="marketing"&gt;
+      &lt;/script&gt;
     </head>
 
 ### Plain HTML / Static Site
 Add to the <head> of the shared base template or every public HTML page:
 
     <head>
-      <script
+      &lt;script
         src="https://ts-script.app.thrivestack.ai/latest/thrivestack.js"
         api-key="YOUR_ENV_VAR_SUBSTITUTION_HERE"
-        source="marketing">
-      </script>
+        source="marketing"&gt;
+      &lt;/script&gt;
     </head>
 
 ### WordPress / CMS
@@ -162,7 +162,7 @@ Add via the theme's functions.php, a header injection plugin, or the theme's hea
 
     // functions.php
     function thrivestack_marketing_script() {
-      echo '<script src="https://ts-script.app.thrivestack.ai/latest/thrivestack.js" api-key="' . esc_attr( getenv('THRIVESTACK_MARKETING_API_KEY') ) . '" source="marketing"></script>';
+      echo '&lt;script src="https://ts-script.app.thrivestack.ai/latest/thrivestack.js" api-key="' . esc_attr( getenv('THRIVESTACK_MARKETING_API_KEY') ) . '" source="marketing"&gt;&lt;/script&gt;';
     }
     add_action( 'wp_head', 'thrivestack_marketing_script' );
 

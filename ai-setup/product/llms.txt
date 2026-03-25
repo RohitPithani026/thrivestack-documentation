@@ -99,20 +99,20 @@ export default function RootLayout({ children }) {
 
 ### React (public/index.html)
 ```html
-<script
+&lt;script
   src="https://ts-script.app.thrivestack.ai/latest/thrivestack.js"
   api-key="%REACT_APP_THRIVESTACK_API_KEY%"
-  source="product">
-</script>
+  source="product"&gt;
+&lt;/script&gt;
 ```
 
 ### Vue / Nuxt / Plain HTML
 ```html
-<script
+&lt;script
   src="https://ts-script.app.thrivestack.ai/latest/thrivestack.js"
   api-key="YOUR_ENV_VAR_HERE"
-  source="product">
-</script>
+  source="product"&gt;
+&lt;/script&gt;
 ```
 
 Rules:
