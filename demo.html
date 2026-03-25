@@ -398,6 +398,42 @@
             color: var(--accent);
             margin-top: 14px;
         }
+
+        /* Inline copy field */
+        .copy-field {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: var(--code-bg);
+            border: 1px solid var(--border);
+            border-radius: 7px;
+            padding: 7px 12px;
+            font-family: 'SF Mono', 'Fira Code', 'Fira Mono', monospace;
+            font-size: 13px;
+            color: var(--text-primary);
+        }
+        .copy-field-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            background: none;
+            border: none;
+            padding: 0;
+            font-size: 12px;
+            font-weight: 500;
+            font-family: inherit;
+            color: var(--text-muted);
+            cursor: pointer;
+            white-space: nowrap;
+            transition: color 0.15s;
+        }
+        .copy-field-btn:hover { color: var(--accent); }
+        .copy-field-btn.copied { color: #16a34a; }
+        .login-hint {
+            font-size: 13px;
+            color: var(--text-secondary);
+            margin-bottom: 10px;
+        }
     </style>
 </head>
 <body>
@@ -437,8 +473,19 @@
                     </div>
                     <div class="step-body">
                         <div class="step-card" style="display:flex;align-items:center;justify-content:space-between;gap:24px;">
-                            <div class="step-title" style="margin-bottom:0;">Open the project in Lovable</div>
-                            <a href="https://lovable.dev/projects/993ee42b-74bd-4ebe-8b87-8c52c5bafff5" target="_blank" class="open-btn-outline">
+                            <div>
+                                <div class="step-title" style="margin-bottom:6px;">Open the project in Lovable</div>
+                                <div style="display:flex;align-items:center;gap:6px;">
+                                    <span style="font-size:12px;color:var(--text-muted);">Log in with</span>
+                                    <div class="copy-field" style="padding:4px 10px;">
+                                        <span>AIDevs@thrivestack.ai</span>
+                                        <button class="copy-field-btn" onclick="copyText('AIDevs@thrivestack.ai', this)">
+                                            <i class="fa-regular fa-copy"></i> Copy
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            <a href="https://lovable.dev/projects/993ee42b-74bd-4ebe-8b87-8c52c5bafff5" target="_blank" class="open-btn-outline" style="flex-shrink:0;">
                                 <img src="https://www.google.com/s2/favicons?domain=lovable.dev&sz=32" style="width:16px;height:16px;border-radius:3px;"> Open in Lovable
                             </a>
                         </div>
@@ -482,8 +529,19 @@ Your API key is YOUR_API_KEY_HERE</code></pre>
                     </div>
                     <div class="step-body">
                         <div class="step-card" style="display:flex;align-items:center;justify-content:space-between;gap:24px;">
-                            <div class="step-title" style="margin-bottom:0;">Open the project in Lovable</div>
-                            <a href="https://lovable.dev/projects/7a7540f2-7618-4675-8a6d-8eb49e8413d9" target="_blank" class="open-btn-outline">
+                            <div>
+                                <div class="step-title" style="margin-bottom:6px;">Open the project in Lovable</div>
+                                <div style="display:flex;align-items:center;gap:6px;">
+                                    <span style="font-size:12px;color:var(--text-muted);">Log in with</span>
+                                    <div class="copy-field" style="padding:4px 10px;">
+                                        <span>AIDevs@thrivestack.ai</span>
+                                        <button class="copy-field-btn" onclick="copyText('AIDevs@thrivestack.ai', this)">
+                                            <i class="fa-regular fa-copy"></i> Copy
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            <a href="https://lovable.dev/projects/7a7540f2-7618-4675-8a6d-8eb49e8413d9" target="_blank" class="open-btn-outline" style="flex-shrink:0;">
                                 <img src="https://www.google.com/s2/favicons?domain=lovable.dev&sz=32" style="width:16px;height:16px;border-radius:3px;"> Open in Lovable
                             </a>
                         </div>
@@ -630,6 +688,18 @@ Your API key is YOUR_API_KEY_HERE</code></pre>
                 document.getElementById('tab-' + this.dataset.tab).classList.add('active');
             });
         });
+
+        // Copy plain text
+        function copyText(text, btn) {
+            navigator.clipboard.writeText(text).then(function () {
+                btn.innerHTML = '<i class="fa-solid fa-check"></i> Copied';
+                btn.classList.add('copied');
+                setTimeout(function () {
+                    btn.innerHTML = '<i class="fa-regular fa-copy"></i> Copy';
+                    btn.classList.remove('copied');
+                }, 2000);
+            });
+        }
 
         // Copy
         function copyCode(id, btn) {

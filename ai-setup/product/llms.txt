@@ -42,10 +42,11 @@ Your only output after instrumentation is complete is the table below, printed i
 
 ```
 ThriveStack Instrumentation Summary
-X/9 implemented
+X/10 implemented
 
 | # | Event | Status | Notes |
 |---|-------|--------|-------|
+| 0 | script tag URL | ✅/⚠️/❌ | Exact src used |
 | 1 | identify | ✅/⚠️/❌ | Field used, file |
 | 2 | group | ✅/⚠️/❌ | Entity levels, billing root |
 | 3 | signed_up | ✅/⚠️/❌ | Handler, file |
@@ -81,37 +82,37 @@ Add once to the root layout file. Never inside a component or page.
 import Script from 'next/script'
 export default function RootLayout({ children }) {
   return (
-    <html>
-      <head>
-        <Script
+    &lt;html&gt;
+      &lt;head&gt;
+        &lt;Script
           src="https://ts-script.app.thrivestack.ai/latest/thrivestack.js"
           strategy="afterInteractive"
           data-api-key={process.env.NEXT_PUBLIC_THRIVESTACK_API_KEY}
           data-source="product"
-        />
-      </head>
-      <body>{children}</body>
-    </html>
+        /&gt;
+      &lt;/head&gt;
+      &lt;body&gt;{children}&lt;/body&gt;
+    &lt;/html&gt;
   )
 }
 ```
 
 ### React (public/index.html)
 ```html
-<script
+&lt;script
   src="https://ts-script.app.thrivestack.ai/latest/thrivestack.js"
   api-key="%REACT_APP_THRIVESTACK_API_KEY%"
-  source="product">
-</script>
+  source="product"&gt;
+&lt;/script&gt;
 ```
 
 ### Vue / Nuxt / Plain HTML
 ```html
-<script
+&lt;script
   src="https://ts-script.app.thrivestack.ai/latest/thrivestack.js"
   api-key="YOUR_ENV_VAR_HERE"
-  source="product">
-</script>
+  source="product"&gt;
+&lt;/script&gt;
 ```
 
 Rules:
@@ -524,8 +525,9 @@ identify → account_added_user
 
 ## VERIFICATION CHECKLIST
 
-Before delivering the summary, verify all 9 points. Fix anything missing first.
+Before delivering the summary, verify all 10 points. Fix anything missing first.
 
+- [ ] 0. script tag — src is exactly `https://ts-script.app.thrivestack.ai/latest/thrivestack.js` — no variation, no substitution. Known wrong URLs to reject: any `cloudfront.net` URL, any `/v1/te.js` path, any URL that is not this exact string
 - [ ] 1. identify — fires on signup, login, profile/info updates
 - [ ] 2. group — fires on entity creation only, correct group_type per level
 - [ ] 3. signed_up — correct flow, UTM captured
@@ -541,10 +543,11 @@ Before delivering the summary, verify all 9 points. Fix anything missing first.
 Output this summary directly in the chat as your final message. Do not create any files for this summary. Do not write it to markdown. Print it inline.
 
 **ThriveStack Instrumentation Summary**
-X/9 implemented
+X/10 implemented
 
 | # | Event | Status | Notes |
 |---|-------|--------|-------|
+| 0 | script tag URL | ✅/⚠️/❌ | Exact src used |
 | 1 | identify | ✅/⚠️/❌ | Field used, file |
 | 2 | group | ✅/⚠️/❌ | Entity levels, billing root |
 | 3 | signed_up | ✅/⚠️/❌ | Handler, file |
@@ -571,24 +574,25 @@ X/9 implemented
 
 ## HARD RULES
 
-1. Global object: `thriveStack` — never `ThriveStack` or `thrivestack`
-2. Every method takes an array: `identify([{...}])` `group([{...}])` `track([{...}])`
-3. Guard every call: `if (typeof thriveStack === 'undefined') return`
-4. timestamp: `new Date().toISOString()` on every call
-5. `group_type: "Account"` reserved for billing root only
-6. `context.group_id` must equal `group_id` on group() — same variable always
-7. `context` required on every `track()` — except `signed_up` when groupId not yet available
-8. userId and groupId from auth context only — never hardcode, never generate
-9. `api-key` from environment variable only — never in source code
-10. Fire-and-forget — never `await` thriveStack calls
-11. Fire after action succeeds — inside `.then()` or after `await`
-12. `group()` on entity creation only — never on login or context switch
-13. `feature_used` is always the literal event_name — never a custom verb
-14. `feature_type` confirmed with developer — never assumed
-15. `account_added_user` fires in all entry points — signup, invite, SSO/SCIM/admin
-16. Do not fire `account_added_user` if user is already a member
-17. `user_added_to_account` does not exist — use `account_added_user`
-18. Additional properties beyond documented ones are always permitted
+1. Script src must be exactly `https://ts-script.app.thrivestack.ai/latest/thrivestack.js` — never alter the URL. Known wrong substitutions to reject: any `cloudfront.net` URL, any `/v1/te.js` path, any URL that is not this exact string
+2. Global object: `thriveStack` — never `ThriveStack` or `thrivestack`
+3. Every method takes an array: `identify([{...}])` `group([{...}])` `track([{...}])`
+4. Guard every call: `if (typeof thriveStack === 'undefined') return`
+5. timestamp: `new Date().toISOString()` on every call — when multiple events fire in the same handler, use `const now = Date.now()` once and offset each by 1ms: `new Date(now).toISOString()`, `new Date(now + 1).toISOString()`, etc.
+6. `group_type: "Account"` reserved for billing root only
+7. `context.group_id` must equal `group_id` on group() — same variable always
+8. `context` required on every `track()` — except `signed_up` when groupId not yet available
+9. userId and groupId from auth context only — never hardcode, never generate
+10. `api-key` from environment variable only — never in source code
+11. Fire-and-forget — never `await` thriveStack calls
+12. Fire after action succeeds — inside `.then()` or after `await`
+13. `group()` on entity creation only — never on login or context switch
+14. `feature_used` is always the literal event_name — never a custom verb
+15. `feature_type` confirmed with developer — never assumed
+16. `account_added_user` fires in all entry points — signup, invite, SSO/SCIM/admin
+17. Do not fire `account_added_user` if user is already a member
+18. `user_added_to_account` does not exist — use `account_added_user`
+19. Additional properties beyond documented ones are always permitted
 
 ---
 
