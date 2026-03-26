@@ -42,7 +42,7 @@ Your only output after instrumentation is complete is the table below, printed i
 
 ```
 ThriveStack Instrumentation Summary
-X/10 implemented
+X/12 implemented
 
 | # | Event | Status | Notes |
 |---|-------|--------|-------|
@@ -56,10 +56,18 @@ X/10 implemented
 | 7 | feature_used | ✅/⚠️/❌ | Features and their feature_type |
 | 8 | invite_sent | ✅/⚠️/❌ | Handler, file or N/A |
 | 9 | onboarding_step_completed | ✅/⚠️/❌ | Steps found or N/A |
+| 10 | signed_out | ✅/⚠️/❌ | Handler, file |
+| 11 | abuse_check | ✅/⚠️/❌ | Signup file, block or flag |
 
 User ID: [field] in [file]
 Group hierarchy: [e.g. Organization → Account (billing root) → Workspace] or [B2C fallback]
 Unresolved: [anything skipped and why, or "None"]
+
+Instrumentation complete. Test your app as a real user — events will start flowing into ThriveStack.
+
+Enabled Features:
+- Departmental Analytics — X reports unlocked — insights across acquisition, activation, retention, and more.
+  https://app.thrivestack.ai/analyze/home
 
 ---
 Handy ThriveStack Resources
@@ -344,6 +352,26 @@ thriveStack.track([{
 
 ---
 
+### signed_out
+When: Existing user logs out.
+No UTM params. `context` is mandatory — groupId is available at logout.
+
+```javascript
+thriveStack.track([{
+  "event_name": "signed_out",
+  "user_id": user.id,
+  "properties": {
+    "user_email": user.email,
+    "user_name": user.name,
+    "user_role": user.role    // omit if unavailable
+  },
+  "context": { "group_id": groupId },
+  "timestamp": new Date().toISOString()
+}])
+```
+
+---
+
 ### account_created
 When: New account/org/workspace is first created.
 `group()` must fire BEFORE this. Do not fire if joining an existing account.
@@ -479,6 +507,33 @@ thriveStack.track([{
 
 ---
 
+### checkAbuseEmail — Abuse Prevention
+When: Before signup form submission completes.
+Prerequisites: ThriveStack SDK script tag installed (STEP 1).
+
+Ask the developer: "Do you want to **block** signups from abusive emails, or **flag** them for review?"
+Then implement the chosen path.
+
+Place after the email input field and just before signup submission:
+
+```javascript
+if (typeof thriveStack === 'undefined') return
+const checkAbuse = await thriveStack.checkAbuseEmail(userEmail)
+if (checkAbuse.success && checkAbuse.data.isAbuse === 1) {
+  // BLOCK path — prevent form submission and show error
+  showError(checkAbuse.message)
+
+  // FLAG path — allow signup but mark for review (use instead of block above)
+  // flagUserForReview(userEmail, checkAbuse.data.reasonForAbuse)
+}
+```
+
+Note: `await` is intentional here — this is a data check that gates the flow, not a fire-and-forget event.
+
+`reasonForAbuse` fields: `isDisposable` (throwaway email provider), `domainExists` (false = domain not found), `isDuplicate` (email already seen in system).
+
+---
+
 ## FIRING ORDER
 
 ### Direct signup — new account
@@ -494,6 +549,11 @@ identify → signed_up → account_added_user
 ### Login
 ```
 identify → signed_in
+```
+
+### Logout
+```
+signed_out
 ```
 
 ### Invite — new user, existing account
@@ -525,7 +585,7 @@ identify → account_added_user
 
 ## VERIFICATION CHECKLIST
 
-Before delivering the summary, verify all 10 points. Fix anything missing first.
+Before delivering the summary, verify all 12 points. Fix anything missing first.
 
 - [ ] 0. script tag — src is exactly `https://ts-script.app.thrivestack.ai/latest/thrivestack.js` — no variation, no substitution. Known wrong URLs to reject: any `cloudfront.net` URL, any `/v1/te.js` path, any URL that is not this exact string
 - [ ] 1. identify — fires on signup, login, profile/info updates
@@ -537,13 +597,15 @@ Before delivering the summary, verify all 10 points. Fix anything missing first.
 - [ ] 7. feature_used — at least one, feature_type confirmed with developer
 - [ ] 8. invite_sent — all invite handlers found
 - [ ] 9. onboarding_step_completed — all stepper/wizard flows found
+- [ ] 10. signed_out — fires on logout, context block present
+- [ ] 11. abuse_check — checkAbuseEmail called before signup submission, block or flag implemented
 
 ### Summary format
 
 Output this summary directly in the chat as your final message. Do not create any files for this summary. Do not write it to markdown. Print it inline.
 
 **ThriveStack Instrumentation Summary**
-X/10 implemented
+X/12 implemented
 
 | # | Event | Status | Notes |
 |---|-------|--------|-------|
@@ -557,10 +619,18 @@ X/10 implemented
 | 7 | feature_used | ✅/⚠️/❌ | Features and their feature_type |
 | 8 | invite_sent | ✅/⚠️/❌ | Handler, file or N/A |
 | 9 | onboarding_step_completed | ✅/⚠️/❌ | Steps found or N/A |
+| 10 | signed_out | ✅/⚠️/❌ | Handler, file |
+| 11 | abuse_check | ✅/⚠️/❌ | Signup file, block or flag |
 
 **User ID:** [field] in [file]
 **Group hierarchy:** [e.g. Organization → Account (billing root) → Workspace] or [B2C fallback]
 **Unresolved:** [anything skipped and why, or "None"]
+
+Instrumentation complete. Test your app as a real user — events will start flowing into ThriveStack.
+
+**Enabled Features:**
+- Departmental Analytics — X reports unlocked — insights across acquisition, activation, retention, and more.
+  https://app.thrivestack.ai/analyze/home
 
 ---
 

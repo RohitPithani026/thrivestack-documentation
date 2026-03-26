@@ -42,13 +42,15 @@ ThriveStack Marketing Telemetry Summary
 
 Unresolved: [anything skipped and why, or "None"]
 
+Instrumentation complete. Your marketing site is now being tracked — visitors will start flowing into ThriveStack.
+
 Enabled Features:
-- Awareness Report — Gain powerful insights into your marketing performance.
-  https://app.thrivestack.ai/analyze/marketing-analytics/visitor-report
+- Departmental Analytics — X reports unlocked — insights across acquisition, activation, retention, and more.
+  https://app.thrivestack.ai/analyze/home
 
 ---
 Handy ThriveStack Resources
-- Setup Progress: https://app.thrivestack.ai/analyze/onboarding/product-analytics/telemetry
+- Setup Progress: https://app.thrivestack.ai/analyze/onboarding/marketing-analytics
 - Diagnostics: https://app.thrivestack.ai/analyze/diagnostics-report
 - API / Audit Logs: https://app.thrivestack.ai/analyze/events
 - Developer Tools: https://app.thrivestack.ai/analyze/developer-tool
@@ -198,13 +200,15 @@ ThriveStack Marketing Telemetry Summary
 
 Unresolved: [anything skipped and why, or "None"]
 
+Instrumentation complete. Your marketing site is now being tracked — visitors will start flowing into ThriveStack.
+
 Enabled Features:
-- Awareness Report — Gain powerful insights into your marketing performance.
-  https://app.thrivestack.ai/analyze/marketing-analytics/visitor-report
+- Departmental Analytics — X reports unlocked — insights across acquisition, activation, retention, and more.
+  https://app.thrivestack.ai/analyze/home
 
 ---
 Handy ThriveStack Resources
-- Setup Progress: https://app.thrivestack.ai/analyze/onboarding/product-analytics/telemetry
+- Setup Progress: https://app.thrivestack.ai/analyze/onboarding/marketing-analytics
 - Diagnostics: https://app.thrivestack.ai/analyze/diagnostics-report
 - API / Audit Logs: https://app.thrivestack.ai/analyze/events
 - Developer Tools: https://app.thrivestack.ai/analyze/developer-tool
