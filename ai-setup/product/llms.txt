@@ -23,10 +23,13 @@ Work through these phases in order. Do not write any code until Phase 0 is compl
    - If it runs in a browser or has a frontend entry point (Next.js, React, Vue, Nuxt, Angular, Svelte, plain HTML), continue with this guide.
    - If it is a **backend/server-side application with no browser context** (Node.js API server, Express, Fastify, Python/Django/FastAPI/Flask, Go service, Ruby on Rails API, etc.), **stop here** and use the backend guide instead:
      → https://docs.thrivestack.ai/ai-setup/product/backend/llms.txt
-1. Identify the tech stack, auth library, and state management
-2. Find `userId` — see STEP 2 for search patterns and rules
-3. Find `groupId` — see STEP 2 for hierarchy, search patterns, and fallbacks
-4. Find all instrumentable feature actions — ask the developer to classify each as `"core"`, `"sticky"`, or `"support"` before writing any code
+1. Ask the developer: "Does your app have **accounts or organizations** that multiple users can belong to (B2B), or is each user their own independent account with no org/account entity (B2C)?"
+   - **B2B** → proceed with full group hierarchy search (STEP 2)
+   - **B2C** → skip hierarchy search, use B2C fallback directly (see STEP 2 — B2C fallback)
+2. Identify the tech stack, auth library, and state management
+3. Find `userId` — see STEP 2 for search patterns and rules
+4. Find `groupId` — only if B2B; see STEP 2 for hierarchy, search patterns, and fallbacks
+5. Find all instrumentable feature actions — ask the developer to classify each as `"core"`, `"sticky"`, or `"support"` before writing any code
 
 ### Phase 1 — Install the script tag
 Add once to the root layout. Follow STEP 1 exactly for the detected framework.
