@@ -19,6 +19,10 @@ All event schemas are non-exhaustive. Additional properties beyond those listed 
 Work through these phases in order. Do not write any code until Phase 0 is complete.
 
 ### Phase 0 — Understand the codebase first
+0. Determine if the codebase is **frontend/full-stack** or **backend-only**:
+   - If it runs in a browser or has a frontend entry point (Next.js, React, Vue, Nuxt, Angular, Svelte, plain HTML), continue with this guide.
+   - If it is a **backend/server-side application with no browser context** (Node.js API server, Express, Fastify, Python/Django/FastAPI/Flask, Go service, Ruby on Rails API, etc.), **stop here** and use the backend guide instead:
+     → https://docs.thrivestack.ai/ai-setup/product/backend/llms.txt
 1. Identify the tech stack, auth library, and state management
 2. Find `userId` — see STEP 2 for search patterns and rules
 3. Find `groupId` — see STEP 2 for hierarchy, search patterns, and fallbacks
