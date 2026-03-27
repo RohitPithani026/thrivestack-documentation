@@ -25,6 +25,7 @@ Add once to the correct central file. Follow STEP 1 exactly for the detected sta
 
 ### Phase 2 — Verify then summarise
 Run through the VERIFICATION CHECKLIST. Fix anything missing. Then output the summary.
+After the summary is printed, your task is complete. Do not continue. Do not fix unrelated issues, refactor surrounding code, or make any further edits.
 
 **REQUIRED OUTPUT FORMAT — strictly follow this, no exceptions.**
 Do NOT write a narrative summary. Do NOT output a "Summary of Changes" section. Do NOT describe what you did in prose. Do NOT create your own table format.
@@ -224,3 +225,4 @@ Handy ThriveStack Resources
 5. The env var name is recommended as THRIVESTACK_MARKETING_API_KEY
    (prefix with NEXT_PUBLIC_, PUBLIC_, REACT_APP_, etc. as required by the framework)
 6. Script src must be exactly `https://ts-script.app.thrivestack.ai/latest/thrivestack.js` — never alter the URL. Known wrong substitutions to reject: any `cloudfront.net` URL, any `/v1/te.js` path, any URL that is not this exact string
+7. Stop after the summary is output — do not fix bugs, refactor code, clean up existing logic, or make any other changes outside of ThriveStack instrumentation. Your only permitted modification is the script tag added in this guide.
