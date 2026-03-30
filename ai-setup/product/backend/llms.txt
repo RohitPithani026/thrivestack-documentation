@@ -30,7 +30,12 @@ Work through these phases in order. Do not write any code until Phase 0 is compl
 3. Identify the language and framework (Express, FastAPI, Django, Gin, etc.)
 4. Find `userId` — see STEP 2 for search patterns and rules
 5. Find `groupId` — only if B2B; see STEP 2 for hierarchy, search patterns, and fallbacks
-6. Find all instrumentable feature actions — ask the developer to classify each as `"core"`, `"sticky"`, or `"support"` before writing any code
+6. Find all instrumentable feature actions. Then **STOP** and ask the developer, exactly:
+   > "I found these features: [list each one]. For each, which type applies?
+   > - **core** — primary value driver, reason users signed up (e.g. Report builder, Pipeline view)
+   > - **sticky** — habit-forming, pulls users back daily/weekly (e.g. Notifications, Workflow automation)
+   > - **support** — switching cost builder, embeds product in operations (e.g. SSO, Billing, Audit logs)"
+   Do not write any `feature_used` calls until the developer has answered for every feature.
 
 ### Phase 1 — Configure authentication
 Store the API key as an environment variable and create a reusable HTTP helper. Follow STEP 1 exactly.
@@ -622,7 +627,7 @@ Instrumentation complete. Test your app as a real user — events will start flo
 11. Fire after action succeeds — never before
 12. `group()` on entity creation only — never on login or context switch
 13. `feature_used` is always the literal event_name — never a custom verb
-14. `feature_type` confirmed with developer — never assumed
+14. `feature_type` confirmed with developer — never assumed. Never write a `feature_used` call without an explicit answer from the developer for that feature's type. Skipping this question is not allowed.
 15. `account_added_user` fires in all entry points — signup, invite, SSO/SCIM/admin
 16. Do not fire `account_added_user` if user is already a member
 17. `user_added_to_account` does not exist — use `account_added_user`
