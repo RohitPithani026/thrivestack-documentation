@@ -37,8 +37,10 @@ Work through these phases in order. Do not write any code until Phase 0 is compl
    Do not write any `feature_used` calls until the developer has answered for every feature.
 6. **STOP** and ask the developer:
    > "Do you want to check for abusive or disposable email addresses during signup?
-   > If yes — should ThriveStack (a) **block** the signup and show an error, or (b) **flag** the user for manual review and allow signup to proceed?"
-   Do not write any `checkAbuseEmail` call until the developer has answered.
+   > - **(a) Block** — prevent the signup and show an error message
+   > - **(b) Flag** — allow signup but mark the user for manual review
+   > - **(c) Skip** — do not implement abuse checking"
+   Do not write any `checkAbuseEmail` call until the developer has answered. If they choose (c), omit the abuse check entirely and mark row 11 as N/A in the summary.
 
 ### Phase 1 — Install the script tag
 Add once to the root layout. Follow STEP 1 exactly for the detected framework.
@@ -74,7 +76,7 @@ X/12 implemented
 | 8 | invite_sent | ✅/⚠️/❌ | Handler, file or N/A |
 | 9 | onboarding_step_completed | ✅/⚠️/❌ | Steps found or N/A |
 | 10 | signed_out | ✅/⚠️/❌ | Handler, file |
-| 11 | abuse_check | ✅/⚠️/❌ | Signup file, block or flag |
+| 11 | abuse_check | ✅/⚠️/❌ | Signup file, block / flag / N/A |
 
 User ID: [field] in [file]
 Group hierarchy: [e.g. Organization → Account (billing root) → Workspace] or [B2C fallback]
@@ -528,8 +530,7 @@ thriveStack.track([{
 When: Before signup form submission completes.
 Prerequisites: ThriveStack SDK script tag installed (STEP 1).
 
-Ask the developer: "Do you want to **block** signups from abusive emails, or **flag** them for review?"
-Then implement the chosen path.
+Use the answer from Phase 0 step 6 (block / flag / skip). If skip was chosen, omit this section entirely.
 
 Place after the email input field and just before signup submission:
 
@@ -615,7 +616,7 @@ Before delivering the summary, verify all 12 points. Fix anything missing first.
 - [ ] 8. invite_sent — all invite handlers found
 - [ ] 9. onboarding_step_completed — all stepper/wizard flows found
 - [ ] 10. signed_out — fires on logout, context block present
-- [ ] 11. abuse_check — checkAbuseEmail called before signup submission, block or flag implemented
+- [ ] 11. abuse_check — if chosen in Phase 0: checkAbuseEmail called before signup submission, block or flag implemented; if skipped: mark N/A
 
 ### Summary format
 
@@ -637,7 +638,7 @@ X/12 implemented
 | 8 | invite_sent | ✅/⚠️/❌ | Handler, file or N/A |
 | 9 | onboarding_step_completed | ✅/⚠️/❌ | Steps found or N/A |
 | 10 | signed_out | ✅/⚠️/❌ | Handler, file |
-| 11 | abuse_check | ✅/⚠️/❌ | Signup file, block or flag |
+| 11 | abuse_check | ✅/⚠️/❌ | Signup file, block / flag / N/A |
 
 **User ID:** [field] in [file]
 **Group hierarchy:** [e.g. Organization → Account (billing root) → Workspace] or [B2C fallback]
@@ -676,7 +677,7 @@ Instrumentation complete. Test your app as a real user — events will start flo
 13. `group()` on entity creation only — never on login or context switch
 14. `feature_used` is always the literal event_name — never a custom verb
 15. `feature_type` confirmed with developer — never assumed. Never write a `feature_used` call without an explicit answer from the developer for that feature's type. Skipping this question is not allowed.
-15a. Abuse check question is mandatory — never skip it. Never implement `checkAbuseEmail` without first asking the developer whether they want block or flag. Never assume block. Never assume flag.
+15a. Abuse check question is mandatory — never skip it. Never implement `checkAbuseEmail` without first asking the developer whether they want block, flag, or to skip entirely. Never assume any option.
 16. `account_added_user` fires in all entry points — signup, invite, SSO/SCIM/admin
 17. Do not fire `account_added_user` if user is already a member
 18. `user_added_to_account` does not exist — use `account_added_user`
