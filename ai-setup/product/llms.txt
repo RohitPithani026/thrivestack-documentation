@@ -29,7 +29,16 @@ Work through these phases in order. Do not write any code until Phase 0 is compl
 2. Identify the tech stack, auth library, and state management
 3. Find `userId` — see STEP 2 for search patterns and rules
 4. Find `groupId` — only if B2B; see STEP 2 for hierarchy, search patterns, and fallbacks
-5. Find all instrumentable feature actions — ask the developer to classify each as `"core"`, `"sticky"`, or `"support"` before writing any code
+5. Find all instrumentable feature actions. Then **STOP** and ask the developer, exactly:
+   > "I found these features: [list each one]. For each, which type applies?
+   > - **core** — primary value driver, reason users signed up (e.g. Report builder, Pipeline view)
+   > - **sticky** — habit-forming, pulls users back daily/weekly (e.g. Notifications, Workflow automation)
+   > - **support** — switching cost builder, embeds product in operations (e.g. SSO, Billing, Audit logs)"
+   Do not write any `feature_used` calls until the developer has answered for every feature.
+6. **STOP** and ask the developer:
+   > "Do you want to check for abusive or disposable email addresses during signup?
+   > If yes — should ThriveStack (a) **block** the signup and show an error, or (b) **flag** the user for manual review and allow signup to proceed?"
+   Do not write any `checkAbuseEmail` call until the developer has answered.
 
 ### Phase 1 — Install the script tag
 Add once to the root layout. Follow STEP 1 exactly for the detected framework.
@@ -666,7 +675,8 @@ Instrumentation complete. Test your app as a real user — events will start flo
 12. Fire after action succeeds — inside `.then()` or after `await`
 13. `group()` on entity creation only — never on login or context switch
 14. `feature_used` is always the literal event_name — never a custom verb
-15. `feature_type` confirmed with developer — never assumed
+15. `feature_type` confirmed with developer — never assumed. Never write a `feature_used` call without an explicit answer from the developer for that feature's type. Skipping this question is not allowed.
+15a. Abuse check question is mandatory — never skip it. Never implement `checkAbuseEmail` without first asking the developer whether they want block or flag. Never assume block. Never assume flag.
 16. `account_added_user` fires in all entry points — signup, invite, SSO/SCIM/admin
 17. Do not fire `account_added_user` if user is already a member
 18. `user_added_to_account` does not exist — use `account_added_user`
